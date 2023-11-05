@@ -39,22 +39,7 @@ namespace Advocacia.Models
             {
                 return false;
             }
-        }
-        public List<Pessoas> getPessoas()
-        {
-            try
-            {
-                using (var banco = new Connection().SQL())
-                {
-                    var pessoas =  banco.Query<Pessoas>("SELECT * FROM Pessoas").ToList();
-                    return pessoas;
-                }
-            }
-            catch (Exception)
-            {
-                return new List<Pessoas>();
-            }
-        }
+        }    
 
         public List<Usuario> GetUsuarios()
         {

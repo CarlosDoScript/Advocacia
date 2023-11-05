@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -133,6 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Business\AdvocaciaBusiness.cs" />
+    <Compile Include="Models\Business\ClientesBusiness.cs" />
     <Compile Include="Models\Helper\Connection.cs" />
     <Compile Include="Models\Helper\Utils.cs" />
     <Compile Include="Models\Mapping\Pessoas.cs" />
@@ -235,6 +237,7 @@
     <Content Include="fonts\sas-webfontc56b.woff2" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Clientes\Clientes.js" />
     <Content Include="Scripts\googlemap-setting.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -274,6 +277,7 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Usuarios\Usuarios.cshtml" />
+    <Content Include="Views\Clientes\Clientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
