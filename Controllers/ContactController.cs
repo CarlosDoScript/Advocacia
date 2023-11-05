@@ -5,29 +5,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 
 namespace Advocacia.Controllers
 {
-    public class HomeController : Controller
+    public class ContactController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }     
-        public ActionResult Login(bool? resultado = null)
+        public ActionResult Contact(bool? resultado = null)
         {
             return View();
         }
-
-        public ActionResult Admin()
-        {
-            return View();
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(FormCollection formCollection)
+        public ActionResult Contact(FormCollection formCollection)
         {
             try
             {
@@ -42,18 +31,17 @@ namespace Advocacia.Controllers
 
                 if (pessoas.Nome == "" || pessoas.Email == "" || pessoas.Celular == "")
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Contact", "Contact");
                 }
                 else
                 {
                     bool resultado = new AdvocaciaBusiness().SalvarInfoGeral(pessoas);
-                    return RedirectToAction("Index", new { resultado = resultado });
-
+                    return RedirectToAction("Contact", new { resultado = resultado });
                 }
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Contact");
             }
         }
     }

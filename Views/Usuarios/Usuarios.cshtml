@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+}
+
+<h2 class="text-black">Usuários</h2>
+<div class="d-flex justify-content-between align-items-end">
+    @if (ViewBag.UsuarioAdm == true)
+    {
+        <div>
+            <button type="button" data-toggle="modal" data-target="#modalUsuario" class="btn btn-success btnNovo">Novo <i class="fas fa-plus"></i></button>
+        </div>
+    }
+    <div class="ml-auto">
+        <label class="text-black" for="pesquisar">Pesquisar</label>
+        <input style="width: 300px;" class="form-control" type="text" id="pesquisar" name="pesquisar" />
+    </div>
+</div>
+
+
+
+<div id="tableUsuarios" class="mt-3"></div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalUsuario" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal">Usuário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <label for="Nome">Nome: <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="Nome" placeholder="Nome" maxlength="255">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="NomeLogin">Usuário: <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="NomeLogin" placeholder="Nome de login" maxlength="255">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="NomeLogin">E-mail: <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="Email" placeholder="E-mail" maxlength="255">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="NomeLogin">Senha: <span class="text-danger">*</span></label>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="senha" placeholder="Senha" maxlength="255">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Administrador <span class="text-danger">*</span></label>
+                            <input name="administrador" class="" id="checkboxAdministrador" type="checkbox" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSalvar" type="button" class="btn btn-secondary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var usuarioAdm = "@ViewBag.UsuarioAdm"
+</script>
+<script src="~/Scripts/Usuarios/Usuarios.js"></script>

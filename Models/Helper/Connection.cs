@@ -13,8 +13,8 @@ namespace Advocacia.Models.Helper
         {
             try
             {
-                var a =  new SqlConnection(WebConfigurationManager.AppSettings["AdvocaciaConnection"]);
-                return a;
+                var connectionString =  new SqlConnection(WebConfigurationManager.AppSettings["AdvocaciaConnection"]);
+                return connectionString;
             }
             catch (Exception ex)
             {

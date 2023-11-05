@@ -1,0 +1,24 @@
+﻿@model Advocacia.Models.Mapping.Login
+@{
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="~/Content/css/vendor/bootstrap.min.css" />
+
+<div class="d-flex justify-content-center align-items-center mt-5">
+    <div>
+        <h1>Login</h1>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { id = "formLogin", name = "formLogin" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.LabelFor(x => x.Usuario)
+            @Html.TextBoxFor(x => x.Usuario, new { @class = "form-control", placeholder = "Usuario", required = "Insira o usuário" })
+            <hr />
+            @Html.LabelFor(x => x.Senha)
+            @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", placeholder = "Senha", required = "Insira a senha" })
+            <div class="ml-3 mt-3">
+                <button type="submit" class="btn btn-dark">Entrar</button>
+            </div>
+        }
+    </div>
+</div>

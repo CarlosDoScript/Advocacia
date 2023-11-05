@@ -1,0 +1,146 @@
+﻿@model Advocacia.Models.Mapping.Pessoas
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <!-- BANNER -->
+    <div class="section banner-page" data-background="images/banner-single.jpg">
+        <div class="content-wrap pos-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex bd-highlight mb-3">
+                            <div class="title-page">Contate-nos</div>
+                        </div>
+                        <div class="d-flex bd-highlight mb-3">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb ">
+                                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Contate-nos</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="section">
+        <div class="content-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <h2 class="section-heading">
+                            Informações de contato
+                        </h2>
+                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+                        <!-- Item 1 -->
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-map-marker fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Endereço :</h4>
+                                <p>Rua Guarani 909 Jardim Buissa l. Macaubal - SP</p>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-envelope fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">E-mail :</h4>
+                                <p>L.A_juridico@outlook.com.br</p>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-phone fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Telefone :</h4>
+                                <p>(17) 996170582</p>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-clock-o fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Horário de Atendimento :</h4>
+                                <p>Seg-Sex : 08:00am-17:00pm <br>Sab-Dom : Fechado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Sidebar -->
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+
+                        <h2 class="section-heading">
+                            Envie-nos uma mensagem
+                        </h2>
+                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+                        @using (Html.BeginForm("Contact", "Contact", FormMethod.Post, new { id = "formContato", name = "formContato" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Nome, new { @class = "form-control", placeholder = "Insira o nome completo" })
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Digite o e-mail" })
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Celular, new { @class = "form-control", placeholder = "Digite o número de telefone ou celular" })
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", placeholder = "Título" })
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.TextAreaFor(x => x.Mensagem, new { @class = "form-control",rows="6", placeholder = "Digite sua mensagem" })
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="form-group">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-secondary">Enviar Mensagem</button>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section bg-primary">
+        <div class="content-wrap py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="text-center text-white">
+                            <h3>Consultor Jurídico : (17) 996170582</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+
+
+
+
+
+

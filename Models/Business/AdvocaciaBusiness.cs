@@ -10,19 +10,19 @@ namespace Advocacia.Models
 {
     public class AdvocaciaBusiness
     {
-        public List<Login> GetUsuarioSenha(string usuario, string senha)
+        public Usuario GetUsuarioSenha(string usuario, string senha)
         {
             try
             {
                 using (var banco = new Connection().SQL())
                 {
-                    var resultado = banco.Query<Login>("SELECT Usuario,Senha FROM Login WHERE Usuario = @Usuario AND Senha = @Senha", new { Usuario = usuario, Senha = senha }).ToList();
+                    var resultado = banco.Query<Usuario>("SELECT * FROM Usuarios WHERE NomeLogin = @Usuario AND Senha = @Senha", new { Usuario = usuario, Senha = senha }).FirstOrDefault();
                     return resultado;
                 }
             }
             catch (Exception ex)
             {
-                return new List<Login>();
+                return null;
             }
         }
 
@@ -55,6 +55,23 @@ namespace Advocacia.Models
                 return new List<Pessoas>();
             }
         }
+
+        public List<Usuario> GetUsuarios()
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    var pessoas = banco.Query<Usuario>("SELECT * FROM Usuarios").ToList();
+                    return pessoas;
+                }
+            }
+            catch (Exception)
+            {
+                return new List<Usuario>();
+            }
+        }
+
         public int deletePessoa(int Id)
         {
             try
@@ -62,6 +79,51 @@ namespace Advocacia.Models
                 using (var banco = new Connection().SQL())
                 {
                     return banco.Execute("DELETE Pessoas WHERE Id = @Id", new { Id });
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public int PostUsuario(string nome, string nomeLogin, string email, string senha, bool adm)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    return banco.Execute("INSERT INTO Usuarios (NomeLogin,Senha,Email,adm,Nome) VALUES(@NomeLogin,@Senha,@Email,@adm,@Nome)", new {NomeLogin = nomeLogin,Senha = senha, Email = email,adm = adm,Nome=nome });
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        
+        public int EditarUsuarios(string nome, string nomeLogin, string email, string senha, bool adm,int idUsuario)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    return banco.Execute("UPDATE Usuarios SET NomeLogin = @NomeLogin ,Senha = @Senha ,Email = @Email ,adm = @adm ,Nome = @Nome WHERE id = @id ", new {NomeLogin = nomeLogin,Senha = senha, Email = email,adm = adm,Nome=nome,id = idUsuario });
+                }
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        
+        public int DeleteUsuario(int idUsuario)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    return banco.Execute("DELETE Usuarios WHERE id = @id", new {id = idUsuario});
                 }
             }
             catch (Exception)
