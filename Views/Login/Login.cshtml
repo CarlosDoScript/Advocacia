@@ -15,7 +15,7 @@
             @Html.TextBoxFor(x => x.Usuario, new { @class = "form-control", placeholder = "Usuario", required = "Insira o usuário" })
             <hr />
             @Html.LabelFor(x => x.Senha)
-            @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", placeholder = "Senha", required = "Insira a senha" })
+            @Html.TextBoxFor(x => x.Senha, new { @class = "form-control", placeholder = "Senha", required = "Insira a senha", type = "password" })
             <div class="ml-3 mt-3">
                 <button type="submit" class="btn btn-dark">Entrar</button>
             </div>

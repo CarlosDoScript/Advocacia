@@ -1,14 +1,14 @@
-﻿var tableUsuario;
-var tipoAcaoUsuario = "INSERIR";
-var idUsuario = 0;
+﻿var tableAutor;
+var tipoAcaoAutor = "INSERIR";
+var idAutor = 0;
 
 $.ajax({
-    url: '/Usuarios/GetUsuarios',
+    url: '/Autores/GetAutores',
     type: 'GET',
     dataType: 'json',
     success: function (result) {
 
-        tableUsuario = new Tabulator("#tableUsuarios", {
+        tableAutor = new Tabulator("#tableAutores", {
             pagination: "local",
             paginationSize: 20,
             initialSort: [{ column: "nome", dir: "asc" }],
@@ -34,35 +34,22 @@ $.ajax({
                 },
             },
             columns: [
-                { title: "Nome", field: "Nome", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
-                { title: "Nome de login", field: "NomeLogin", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
-                { title: "Email", field: "Email", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
-                {
-                    title: "Administrador", field: "adm", width: 150, resizable: false, hozAlign: "left", headerHozAlign: "left", formatter: function (cell, formatterParams, onRendered) {
-
-                        if (cell.getRow().getData().adm == true) {
-                            return "Sim"
-                        } else {
-                            return "Não"
-                        }
-
-                    }
-                },
+                { title: "Nome", field: "nome", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
+                { title: "Email", field: "email", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
+                { title: "Data de nascimento", field: "dtNascimentoFormatado", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
                 {
                     title: "", field: "", resizable: false, headerSort: false, formatter: editIcon, width: 1, hozAlign: "center", headerHozAlign: "center", cellClick: function (e, cell) {
-                        idUsuario = cell.getRow().getData().Id
+                        idAutor = cell.getRow().getData().Id
 
                         if (usuarioAdm.toLocaleLowerCase() == "true") {
 
-                            tipoAcaoUsuario = "EDITAR"
+                            tipoAcaoAutor = "EDITAR"
 
-                            $("#Nome").val(cell.getRow().getData().Nome)
-                            $("#NomeLogin").val(cell.getRow().getData().NomeLogin)
-                            $("#Email").val(cell.getRow().getData().Email)
-                            $("#senha").val(cell.getRow().getData().Senha)
-                            $('#checkboxAdministrador').prop('checked', cell.getRow().getData().adm);
+                            $("#nome").val(cell.getRow().getData().nome)
+                            $("#email").val(cell.getRow().getData().email)
+                            $("#dtNascimento").val(cell.getRow().getData().dtNascimento)
 
-                            $("#modalUsuario").modal('show')
+                            $("#modalAutor").modal('show')
 
                         } else {
                             Command: toastr["error"]("Você não tem permissão de editar!")
@@ -81,15 +68,15 @@ $.ajax({
 
 
                                 $.ajax({
-                                    url: "/Usuarios/DeleteUsuario",
+                                    url: "/Autores/DeleteAutor",
                                     method: 'GET',
                                     dataType: "json",
-                                    data: { idUsuario: cell.getRow().getData().Id },
+                                    data: { idAutor: cell.getRow().getData().Id },
                                     success: function (result) {
 
                                         if (result == 1) {
 
-                                            Command: toastr["success"]("Usuário deletado com sucesso!")
+                                            Command: toastr["success"]("Autor deletado com sucesso!")
 
                                             setTimeout(function () {
                                                 location.reload(true);
@@ -124,55 +111,48 @@ $.ajax({
 });
 
 var editIcon = function (cell, formatterParams) {
-    return '<i style="color:#0F2752;" title="Editar Usuário" class="fa-solid fa-pen-to-square"></i>'
+    return '<i style="color:#0F2752;" title="Editar Autor" class="fa-solid fa-pen-to-square"></i>'
 };
 
 var deleteIcon = function (cell, formatterParams) {
-    return '<i style="color:red;" class="fa-solid fa-trash" title="Excluir Usuário"></i>'
+    return '<i style="color:red;" class="fa-solid fa-trash" title="Excluir Autor"></i>'
 };
 
 $("#btnSalvar").on("click", function () {
 
-    let nomeUsuario = $("#Nome").val()
-    let nomeLogin = $("#NomeLogin").val()
-    let email = $("#Email").val()
-    let senha = $("#senha").val()
-    let adm = $('#checkboxAdministrador').is(':checked')
+    let nomeAutor = $("#nome").val()
+    let email = $("#email").val()
+    let dtNascimento = $("#dtNascimento").val()
 
 
-    if (nomeUsuario.trim() == '') {
+    if (nomeAutor.trim() == '') {
         Command: toastr["warning"]("Nome é obrigatório.")
-        $("#Nome").focus()
+        $("#nome").focus()
         return
     }
 
-    if (nomeLogin.trim() == '') {
-        Command: toastr["warning"]("Nome de usuário é obrigatório.")
-        $("#NomeLogin").focus()
-        return
-    }
 
     if (email.trim() == '') {
         Command: toastr["warning"]("E-mail é obrigatório.")
-        $("#Email").focus()
+        $("#email").focus()
         return
     }
 
-    if (senha.trim() == '') {
-        Command: toastr["warning"]("Senha é obrigatório.")
-        $("#senha").focus()
+    if (dtNascimento.trim() == '') {
+        Command: toastr["warning"]("Data de nascimento é obrigatório.")
+        $("#dtNascimento").focus()
         return
     }
 
-    salvarEditarUsuario(tipoAcaoUsuario, nomeUsuario, nomeLogin, email, senha, adm)
+    salvarEditarAutor(tipoAcaoAutor, nomeAutor, email,dtNascimento)
 
 })
 
 const input = document.getElementById("pesquisar");
 input.addEventListener("keyup", function () {
-    tableUsuario.setFilter(filtraCampos, { value: input.value });
+    tableAutor.setFilter(filtraCampos, { value: input.value });
     if (input.value == " ") {
-        tableUsuario.clearFilter()
+        tableAutor.clearFilter()
     }
 });
 
@@ -190,30 +170,27 @@ function filtraCampos(data, parametros) {
 
 $(".btnNovo").on("click", function () {
 
-    tipoAcaoUsuario = "INSERIR"
+    tipoAcaoAutor = "INSERIR"
 
-    $("#Nome").val("")
-    $("#NomeLogin").val("")
-    $("#Email").val("")
-    $("#senha").val("")
-    $('#checkboxAdministrador').prop('checked', false);
-
+    $("#nome").val("")
+    $("#email").val("")
+    $("#dtNascimento").val("")
 })
 
-function salvarEditarUsuario(tipo, nomeUsuario, nomeLogin, email, senha, adm) {
+function salvarEditarAutor(tipo, nomeAutor, email, dtNascimento) {
 
     if (tipo == "INSERIR") {
 
         $.ajax({
-            url: "/Usuarios/PostUsuarios",
+            url: "/Autores/PostAutor",
             method: 'GET',
             dataType: "json",
-            data: { nome: nomeUsuario, nomeLogin: nomeLogin, email: email, senha: senha, adm: adm },
+            data: { nomeAutor: nomeAutor, email: email, dtNascimento: dtNascimento},
             success: function (result) {
 
                 if (result == 1) {
 
-                    Command: toastr["success"]("Usuário criado com sucesso!")
+                    Command: toastr["success"]("Autor criado com sucesso!")
 
                     setTimeout(function () {
                         location.reload(true);
@@ -233,15 +210,15 @@ function salvarEditarUsuario(tipo, nomeUsuario, nomeLogin, email, senha, adm) {
     } else {
 
         $.ajax({
-            url: "/Usuarios/EditarUsuarios",
+            url: "/Autores/EditarAutor",
             method: 'GET',
             dataType: "json",
-            data: { nome: nomeUsuario, nomeLogin: nomeLogin, email: email, senha: senha, adm: adm, idUsuario: idUsuario },
+            data: { nomeAutor: nomeAutor, email: email, dtNascimento: dtNascimento, idAutor: idAutor},
             success: function (result) {
 
                 if (result == 1) {
 
-                    Command: toastr["success"]("Usuário editado com sucesso!")
+                    Command: toastr["success"]("Autor editado com sucesso!")
 
                     setTimeout(function () {
                         location.reload(true);

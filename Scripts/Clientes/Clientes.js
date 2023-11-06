@@ -33,7 +33,7 @@ $.ajax({
             },
             columns: [
                 { title: "Nome", field: "Nome", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
-                { title: "Email", field: "Emil", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
+                { title: "Email", field: "Email", resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
                 { title: "Celular", field: "Celular", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
                 { title: "Titulo", field: "Titulo", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },
                 { title: "Mensagem", field: "Mensagem", width: 300, resizable: false, hozAlign: "left", headerHozAlign: "left", tooltip: true },

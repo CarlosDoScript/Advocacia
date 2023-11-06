@@ -124,6 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AutoresController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -134,11 +135,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Business\AdvocaciaBusiness.cs" />
+    <Compile Include="Models\Business\AutoresBusiness.cs" />
     <Compile Include="Models\Business\ClientesBusiness.cs" />
     <Compile Include="Models\Helper\Connection.cs" />
+    <Compile Include="Models\Helper\ExtensionMethods.cs" />
     <Compile Include="Models\Helper\Utils.cs" />
+    <Compile Include="Models\Mapping\Autor.cs" />
     <Compile Include="Models\Mapping\Pessoas.cs" />
     <Compile Include="Models\Mapping\UsuarioLogado.cs" />
+    <Compile Include="Models\ViewModel\AutorVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +229,7 @@
     <Content Include="fonts\sas-webfontc56b.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Autores\Autores.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont3e6e.eot" />
@@ -278,6 +284,7 @@
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Usuarios\Usuarios.cshtml" />
     <Content Include="Views\Clientes\Clientes.cshtml" />
+    <Content Include="Views\Autores\Autores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
