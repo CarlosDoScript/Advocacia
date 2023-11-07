@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Postar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="https://cdn.tiny.cloud/1/oln8ih7i4b3aky83foxbj13n11n5cextf8e7ku3lt5p0x1hz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="~/Content/TinyMCE/pt_BR/langs/pt_BR.js"></script>
+
+<h2 class="text-black">Postagem</h2>
+
+<div class="d-flex justify-content-between align-items-end mb-4">
+    <div>
+        <button type="button" class="btn btn-success" id="btnPostar">Postar <i class="fas fa-plus"></i></button>
+    </div>
+
+</div>
+<div class="mt-1 mb-3">
+    <input id="titulo" type="text" placeholder="Título do post" class="form-control" max="255" />
+</div>
+<div class="mt-1 mb-3">
+    <input id="imagemPrincipal" type="file" placeholder="Título do post" class="form-control" />
+</div>
+<textarea>
+</textarea>
+
+<div style="margin-top:50px!important;" class="d-flex">
+    <p style="margin-bottom:15px!important;" class="text-black  text-center">
+        @DateTime.Now.Date.ToLongDateString()
+    </p>
+</div>
+
+<script>
+    var conteudoFormatado = ""
+
+    $(document).ready(function () {
+        tinymce.init({
+            selector: 'textarea',
+            height: 800,
+            language: 'pt_BR',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            setup: function (editor) {
+                editor.on('init', function () {
+                    conteudoFormatado = editor.getContent();
+                });
+            }
+        });
+    });
+</script>
+<script src="~/Scripts/Postar/Postar.js"></script>

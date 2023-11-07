@@ -34,7 +34,7 @@ namespace Advocacia.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Login");
+                    return RedirectToAction("Login","Login");
                 }
             }
             catch (Exception ex)
