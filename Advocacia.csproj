@@ -141,6 +141,7 @@
     <Compile Include="Models\Business\AutoresBusiness.cs" />
     <Compile Include="Models\Business\CategoriasFinalidadesBusiness.cs" />
     <Compile Include="Models\Business\ClientesBusiness.cs" />
+    <Compile Include="Models\Business\PostarBusiness.cs" />
     <Compile Include="Models\Helper\Connection.cs" />
     <Compile Include="Models\Helper\ExtensionMethods.cs" />
     <Compile Include="Models\Helper\Utils.cs" />

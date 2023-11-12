@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Web;
+using System.IO;
+using System.Web.Mvc;
 
 namespace BWProtocoloWebBusiness.Helper
 {
@@ -713,6 +716,63 @@ namespace BWProtocoloWebBusiness.Helper
                 return true;
             else
                 return false;
+        }
+
+        public static string SalvarImagemPost(HttpPostedFileBase arquivo)
+        {
+            string destino = @"\Content\Blog\Postagens\Imagens";            
+            string guid = Guid.NewGuid().ToString("N");
+
+            string caminhoFisico = HttpContext.Current.Server.MapPath(destino);
+            string fileExtension = Path.GetExtension(arquivo.FileName);
+
+            string newFileName = guid + fileExtension;
+
+            if (!Directory.Exists(caminhoFisico))
+            {
+                Directory.CreateDirectory(caminhoFisico);
+            }
+
+            string filePath = Path.Combine(caminhoFisico, newFileName);
+
+            arquivo.SaveAs(filePath);
+
+            return guid;
+
+
+        }
+       public static int ContarPalavras(string texto)
+        {
+            string[] palavras = texto.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', ':', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            return palavras.Length;
+        }
+        public static string CalcularTempoLeituraEstimado(int numeroPalavras)
+        {
+            if (numeroPalavras <= 0)
+            {
+                throw new ArgumentException("Número de palavras e média de palavras por minuto devem ser maiores que zero.");
+            }
+            
+            double minutosEstimados = (double)numeroPalavras / 180;
+            TimeSpan tempoEstimado = TimeSpan.FromMinutes(minutosEstimados);
+
+            string tempoEstimadoString = "";
+
+            if (tempoEstimado.Hours > 0)
+            {
+                tempoEstimadoString += $"{tempoEstimado.Hours} {(tempoEstimado.Hours == 1 ? "hora" : "horas")}";
+            }
+
+            if (tempoEstimado.Minutes > 0)
+            {
+                if (!string.IsNullOrEmpty(tempoEstimadoString))
+                    tempoEstimadoString += ", ";
+
+                tempoEstimadoString += $"{tempoEstimado.Minutes} {(tempoEstimado.Minutes == 1 ? "minuto" : "minutos")}";
+            }
+
+
+            return tempoEstimadoString + " de leitura";
         }
     }
 }
