@@ -290,7 +290,7 @@ $("#btnSalvarFinalidade").on("click", function () {
 
     if (descricao.trim() == '') {
         Command: toastr["warning"]("Descrição é obrigatório.")
-        $("#descricao").focus()
+        $("#descricaoFinalidade").focus()
         return
     }
 
