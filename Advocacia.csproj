@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\CategoriasFinalidadesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -138,6 +139,7 @@
     </Compile>
     <Compile Include="Models\Business\AdvocaciaBusiness.cs" />
     <Compile Include="Models\Business\AutoresBusiness.cs" />
+    <Compile Include="Models\Business\CategoriasFinalidadesBusiness.cs" />
     <Compile Include="Models\Business\ClientesBusiness.cs" />
     <Compile Include="Models\Helper\Connection.cs" />
     <Compile Include="Models\Helper\ExtensionMethods.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Models\Mapping\UsuarioLogado.cs" />
     <Compile Include="Models\ViewModel\AutorVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\CategoriasFinalidades\CategoriasFinalidades.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -293,6 +296,7 @@
     <Content Include="Views\Autores\Autores.cshtml" />
     <Content Include="Views\Postagens\Postagens.cshtml" />
     <Content Include="Views\Postar\Postar.cshtml" />
+    <Content Include="Views\CategoriasFinalidades\CategoriasFinalidades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

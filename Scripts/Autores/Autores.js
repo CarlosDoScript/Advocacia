@@ -52,7 +52,7 @@ $.ajax({
                             $("#modalAutor").modal('show')
 
                         } else {
-                            Command: toastr["error"]("Você não tem permissão de editar!")
+                            Command: toastr["error"]("Você não tem permissão de alterar!")
                         }
 
                     }
@@ -76,7 +76,7 @@ $.ajax({
 
                                         if (result == 1) {
 
-                                            Command: toastr["success"]("Autor deletado com sucesso!")
+                                            Command: toastr["success"]("Autor excluído!")
 
                                             setTimeout(function () {
                                                 location.reload(true);
@@ -190,7 +190,7 @@ function salvarEditarAutor(tipo, nomeAutor, email, dtNascimento) {
 
                 if (result == 1) {
 
-                    Command: toastr["success"]("Autor criado com sucesso!")
+                    Command: toastr["success"]("Autor criado!")
 
                     setTimeout(function () {
                         location.reload(true);
@@ -218,7 +218,7 @@ function salvarEditarAutor(tipo, nomeAutor, email, dtNascimento) {
 
                 if (result == 1) {
 
-                    Command: toastr["success"]("Autor editado com sucesso!")
+                    Command: toastr["success"]("Autor alterado!")
 
                     setTimeout(function () {
                         location.reload(true);

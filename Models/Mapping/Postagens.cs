@@ -23,4 +23,16 @@ namespace Advocacia.Models.Mapping
         public int id_autor { get; set; }
         public string nome_imagem_gerada { get; set; }
     }
+
+    public class Categorias
+    {
+        public int id { get; set; }
+        public string descricao { get; set; }
+    }
+    
+    public class Finalidades
+    {
+        public int id { get; set; }
+        public string descricao { get; set; }
+    }
 }
