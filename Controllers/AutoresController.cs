@@ -2,6 +2,7 @@
 using Advocacia.Models.Helper;
 using Advocacia.Models.Mapping;
 using Advocacia.Models.ViewModel;
+using BWProtocoloWebBusiness.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,14 +55,16 @@ namespace Advocacia.Controllers
 
         public JsonResult PostAutor(string nomeAutor, string email, string dtNascimento)
         {
-            var result = new AutoresBusiness().PostAutor(nomeAutor,email,Convert.ToDateTime(dtNascimento));
+            nomeAutor = ExtensionMethods.PrimeiraLetraPalavrasMaisculas(nomeAutor);
+            var result = new AutoresBusiness().PostAutor(nomeAutor, email, Convert.ToDateTime(dtNascimento));
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult EditarAutor(string nomeAutor, string email, string dtNascimento, int idAutor)
         {
-            var result = new AutoresBusiness().EditarAutor(nomeAutor, email,Convert.ToDateTime(dtNascimento),idAutor);
+            nomeAutor = ExtensionMethods.PrimeiraLetraPalavrasMaisculas(nomeAutor);
+            var result = new AutoresBusiness().EditarAutor(nomeAutor, email, Convert.ToDateTime(dtNascimento), idAutor);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

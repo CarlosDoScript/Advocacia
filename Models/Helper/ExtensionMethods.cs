@@ -61,6 +61,18 @@ namespace BWProtocoloWebBusiness.Helper
 
         #endregion
 
+        public static string PrimeiraLetraMaiscula(string entrada)
+        {
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            return textInfo.ToTitleCase(entrada);
+        }
+
+        public static string PrimeiraLetraPalavrasMaisculas(string entrada)
+        {
+            var textInfo = CultureInfo.GetCultureInfo("pt-BR").TextInfo;
+            return textInfo.ToTitleCase(entrada);
+        }
+
         #region Int32
 
         /// <summary>

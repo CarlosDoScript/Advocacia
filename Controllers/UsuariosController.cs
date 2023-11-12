@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Advocacia.Models;
 using Advocacia.Models.Helper;
+using BWProtocoloWebBusiness.Helper;
 
 namespace Advocacia.Controllers
 {
@@ -37,6 +38,7 @@ namespace Advocacia.Controllers
 
         public JsonResult PostUsuarios(string nome,string nomeLogin,string email,string senha,bool adm)
         {
+            nome = ExtensionMethods.PrimeiraLetraPalavrasMaisculas(nome);
             var result = new AdvocaciaBusiness().PostUsuario(nome,nomeLogin,email,senha,adm);
 
             return Json(result,JsonRequestBehavior.AllowGet);
@@ -44,6 +46,7 @@ namespace Advocacia.Controllers
 
         public JsonResult EditarUsuarios(string nome, string nomeLogin, string email, string senha, bool adm, int idUsuario)
         {
+            nome = ExtensionMethods.PrimeiraLetraPalavrasMaisculas(nome);
             var result = new AdvocaciaBusiness().EditarUsuarios(nome, nomeLogin, email, senha, adm, idUsuario);
 
             return Json(result, JsonRequestBehavior.AllowGet);

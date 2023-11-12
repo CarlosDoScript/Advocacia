@@ -38,7 +38,7 @@ namespace Advocacia.Controllers
                 Id = cliente.Id,
                 Nome = cliente.Nome,
                 Email = cliente.Email,
-                Celular = ExtensionMethods.FormatarTelefone(cliente.Celular),
+                Celular =cliente.Celular,
                 Titulo = cliente.Titulo,
                 Mensagem = cliente.Mensagem
             });

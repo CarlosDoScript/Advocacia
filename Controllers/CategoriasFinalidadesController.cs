@@ -1,5 +1,6 @@
 ﻿using Advocacia.Models.Business;
 using Advocacia.Models.Helper;
+using BWProtocoloWebBusiness.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace Advocacia.Controllers
 
         public JsonResult PostCategoria(string descricao)
         {
+            descricao = ExtensionMethods.PrimeiraLetraMaiscula(descricao);
             var result = new CategoriasFinalidadesBusiness().PostCategoria(descricao);
 
             return Json(result,JsonRequestBehavior.AllowGet);
@@ -42,6 +44,7 @@ namespace Advocacia.Controllers
 
         public JsonResult EditarCategoria(int id, string descricao)
         {
+            descricao = ExtensionMethods.PrimeiraLetraMaiscula(descricao);
             var result = new CategoriasFinalidadesBusiness().EditarCategoria(id,descricao);
 
             return Json(result,JsonRequestBehavior.AllowGet);
@@ -62,6 +65,7 @@ namespace Advocacia.Controllers
         [HttpGet]
         public JsonResult PostFinalidade(int idCategoria,string descricao)
         {
+            descricao = ExtensionMethods.PrimeiraLetraMaiscula(descricao);
             var result = new CategoriasFinalidadesBusiness().PostFinalidades(idCategoria,descricao);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -69,6 +73,7 @@ namespace Advocacia.Controllers
         [HttpGet]
         public JsonResult EditarFinalidade(int id, string descricao)
         {
+            descricao = ExtensionMethods.PrimeiraLetraMaiscula(descricao);
             var result = new CategoriasFinalidadesBusiness().EditarFinalidade(id, descricao);
             return Json(result, JsonRequestBehavior.AllowGet);
         }

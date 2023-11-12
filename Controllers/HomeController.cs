@@ -1,5 +1,6 @@
 ﻿using Advocacia.Models;
 using Advocacia.Models.Mapping;
+using BWProtocoloWebBusiness.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace Advocacia.Controllers
             {
                 Pessoas pessoas = new Pessoas();
                 {
-                    pessoas.Nome = formCollection["Nome"];
+                    pessoas.Nome = ExtensionMethods.PrimeiraLetraPalavrasMaisculas(formCollection["Nome"]);
                     pessoas.Email = formCollection["Email"];
                     pessoas.Celular = formCollection["Celular"];
                     pessoas.Titulo = formCollection["Titulo"];
