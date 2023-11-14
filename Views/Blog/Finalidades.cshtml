@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<Advocacia.Models.Mapping.Finalidades>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="section banner-page" data-background="images/banner-single.jpg">
+    <div class="content-wrap pos-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="title-page">Finalidades</div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-3">
+                        <nav aria-label="breadcrumb">
+                            <a href="/Blog/Blog">Voltar</a>
+                            <ol class="breadcrumb ">
+                                <li class="breadcrumb-item">@ViewBag.nomeCategoria</li>
+                                <li class="breadcrumb-item active" aria-current="page">Finalidades</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="content-wrap">
+        <div class="container">
+            <div class="row flex-wrap">
+
+                @if (Model.Count > 0)
+                {
+                    foreach (var finalidade in Model)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 mb-4">
+                            <a href="@Url.Action("Finalidades", "Blog", new { idCategoria = ViewBag.idCategoria, nomeCategoria = ViewBag.nomeCategoria })">
+                                <div class="box-icon-1 text-center descricao-categoria">
+                                    <div class="body-content">
+                                        <h3>@finalidade.descricao</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+
+
+        <hr class="mt-5" />
+        <nav aria-label="Page navigation mt-5">
+            <ul class="pagination justify-content-end" style="height: 20px;">
+                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Finalidades", "Blog", new { page = Model.PageNumber - 1,idCategoria = ViewBag.idCategoria,nomeCategoria = ViewBag.nomeCategoria })" tabindex="-1">Anterior</a>
+                </li>
+
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Finalidades", "Blog", new { page = i,idCategoria = ViewBag.idCategoria,nomeCategoria = ViewBag.nomeCategoria })">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Finalidades", "Blog", new { page = Model.PageNumber + 1,idCategoria = ViewBag.idCategoria,nomeCategoria = ViewBag.nomeCategoria })">Próximo</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<style>
+    .descricao-categoria {
+        white-space: normal !important;
+        display: inline-block !important;
+    }
+</style>
+

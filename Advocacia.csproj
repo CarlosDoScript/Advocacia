@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoriasFinalidadesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -304,6 +305,9 @@
     <Content Include="Views\CategoriasFinalidades\CategoriasFinalidades.cshtml" />
     <Content Include="Views\Postagens\Categorias.cshtml" />
     <Content Include="Views\Postagens\Finalidades.cshtml" />
+    <Content Include="Views\Blog\Blog.cshtml" />
+    <Content Include="Views\Blog\Finalidades.cshtml" />
+    <Content Include="Views\Blog\Postagens.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

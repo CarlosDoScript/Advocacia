@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Advocacia - Home</title>
+    <title class="tituloPagina">Advocacia - Home</title>
     <meta name="description" content="Lawe is responsive multi-purpose HTML5 template compatible with Bootstrap 4. Take your Startup business website to the next level. It is designed for lawyer, Attorney, businesses or any type of person or business who wants to showcase their work, services and professional way.">
     <meta name="keywords" content="advocate, attorney, business, consult, consultant, consulting, corporate, government, justice, law, lawyer, lawyers, legal, political">
     <meta name="author" content="rometheme.net">
@@ -93,6 +93,9 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item menu-principal">
                                 <a class="nav-link" href="/Home/Index">HOME</a>
+                            </li>
+                            <li class="nav-item  menu-blog">
+                                <a class="nav-link" href="/Blog/Blog">BLOG</a>
                             </li>
                             <li class="nav-item  menu-contact">
                                 <a class="nav-link" href="/Contact/Contact">CONTATO</a>
@@ -238,13 +241,23 @@
             $('#' + tabs[i]).removeClass('active')
         }
         if (page == 'Contact') {
+            $(".tituloPagina").text("Advocacia - Contato");
             $('.menu-contact').addClass('active')
         }
         else if (page == 'Index') {
+            $(".tituloPagina").text("Advocacia - Home");
             $('.menu-principal').addClass('active')
         }
         else if (page == 'PracticeArea') {
+            $(".tituloPagina").text("Advocacia - Área de prática");
             $('.menu-areaPratica').addClass('active')
+        }
+        else if (page == 'Blog' || page == 'Finalidades') {
+            $(".tituloPagina").text("Advocacia - Blog");
+            $('.menu-blog').addClass('active')
+        } else {
+            $(".tituloPagina").text("Advocacia - Home");
+            $('.menu-principal').addClass('active')
         }
 
     });
