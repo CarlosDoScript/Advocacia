@@ -27,6 +27,23 @@ namespace Advocacia.Models.Business
             }
         }
 
+        public Categorias GetCategoria(int idCategoria)
+        {
+            try
+            {
+                using (var db = new Connection().SQL())
+                {
+                    var categorias = db.Query<Categorias>("SELECT * FROM Categorias WHERE id = @id",new {id = idCategoria}).FirstOrDefault();
+
+                    return categorias;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public int PostCategoria(string descricao)
         {
             try
@@ -136,6 +153,23 @@ namespace Advocacia.Models.Business
             catch (Exception ex)
             {
                 return new List<Finalidades>();
+            }
+        }
+
+        public Categorias GetCategoriaById(int id)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    int idCategoria = banco.Query<VMFinalidades>("SELECT * FROM Finalidades WHERE id = @id", new { id = id }).FirstOrDefault().id_categoria;
+                    var categoria = banco.Query<Categorias>("SELECT * FROM Categorias WHERE id = @id",new {id = idCategoria}).FirstOrDefault();                    
+                    return categoria;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

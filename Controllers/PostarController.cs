@@ -50,7 +50,7 @@ namespace Advocacia.Controllers
             int numeroPalavras = ExtensionMethods.ContarPalavras(conteudoOriginal);
             string tempoLeitura = ExtensionMethods.CalcularTempoLeituraEstimado(numeroPalavras);            
             
-            var result = new PostarBusiness().CriarPost(titulo,categoria,finalidade,autor, conteudoFormatado,nomeImagemGerado,tempoLeitura);
+            var result = new PostarBusiness().CriarPost(titulo,categoria,finalidade,autor, conteudoFormatado,nomeImagemGerado,tempoLeitura,conteudoOriginal);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

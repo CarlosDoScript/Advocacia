@@ -737,11 +737,21 @@ namespace BWProtocoloWebBusiness.Helper
 
             arquivo.SaveAs(filePath);
 
-            return guid;
-
-
+            return newFileName;
         }
-       public static int ContarPalavras(string texto)
+
+        public static void DeletarImagemPost(string nomeArquivo)
+        {
+            string caminhoFisico = HttpContext.Current.Server.MapPath("~/Content/Blog/Postagens/Imagens");
+            string filePath = Path.Combine(caminhoFisico, nomeArquivo);
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        public static int ContarPalavras(string texto)
         {
             string[] palavras = texto.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', ':', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
             return palavras.Length;

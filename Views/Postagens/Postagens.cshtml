@@ -1,4 +1,4 @@
-﻿
+﻿@model PagedList.IPagedList<Advocacia.Models.Mapping.Postagens>
 @{
     ViewBag.Title = "Postagens";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -6,10 +6,109 @@
 
 <h2 class="text-black">Postagens</h2>
 
+<a class="text-black" href="/Postagens/Categorias">Voltar à categorias</a>
 
+<p class="text-black">@ViewBag.nomeCategoria / @ViewBag.nomeFinalidade</p>
+<hr />
+<div class="d-flex flex-wrap mt-5 justify-content-center">
 
+    @if (Model.Count > 0)
+    {
+        foreach (var postagem in Model)
+        {
+            var maxLength = 109;
+            var palavras = postagem.conteudo_sem_formatacao.Length > maxLength
+                ? postagem.conteudo_sem_formatacao.Substring(0, maxLength).TrimEnd()
+                : postagem.conteudo_sem_formatacao;
 
+            <div class="d-flex flex-wrap justify-content-center mt-1">
+                <div class="card mb-3 mr-3" style="width: 18rem;">
+                    <img class="card-img-top" width="286" height="180" src="~/Content/Blog/Postagens/Imagens/@postagem.nome_imagem_gerada">
+                    <div class="card-body">
+                        <h5 class="card-title">@postagem.titulo</h5>
+                        <p class="card-text">@palavras...</p>
+                        <div class="d-flex justify-content-end">
+                            <a href="#/" class="mr-3" title="Visualizar postagem" id="postId" onclick="visualizarPostagem(@postagem.id)"><i class="far fa-eye"></i></a>
+                            <a href="#/" title="Excluir postagem" id="postId" onclick="excluirPostagem(@postagem.id,'@postagem.nome_imagem_gerada')"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<hr class="mt-5" />
+<nav aria-label="Page navigation mt-5">
+    <ul class="pagination justify-content-end" style="height: 20px;">
+        <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("Postagens", "Postagens", new { page = Model.PageNumber - 1, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })" tabindex="-1">Anterior</a>
+        </li>
+
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Postagens", "Postagens", new { page = i, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })">@i</a>
+            </li>
+        }
+
+        <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+            <a class="page-link" href="@Url.Action("Postagens", "Postagens", new { page = Model.PageNumber + 1, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })">Próximo</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="modal fade" id="modalPostagem" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 100%!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tituloModal">Postagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <h2 class="d-flex justify-content-center" id="tituloPostagem">sadsad</h2>
+                    <p class="nomeAutor d-flex justify-content-center"></p>
+                    <div class="d-flex justify-content-center">
+                        <img class="postagem-imagem" src="" />
+                    </div>
+                    <div class="text-black mt-5" id="conteudoPostagem"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     var usuarioAdm = "@ViewBag.UsuarioAdm"
 </script>
 <script src="~/Scripts/Postagens/Postagens.js"></script>
+<script>
+    function visualizarPostagem(idPostagem) {
+
+        $.ajax({
+            url: "/Postagens/VisualizarPostagem",
+            method: 'GET',
+            dataType: "json",
+            data: { idPostagem: idPostagem },
+            success: function (postagem) {
+                $("#tituloPostagem").text(postagem.titulo);
+                $(".nomeAutor").text(postagem.nome_autor + " - " + postagem.dtPublicacao + " - " + postagem.minutos_leitura)
+                $("#conteudoPostagem").html(postagem.conteudo);
+                $(".postagem-imagem").attr("src", window.location.origin + "/Content/Blog/Postagens/Imagens/" + postagem.nome_imagem_gerada);
+
+            },
+            error: function (message) {
+                Command: toastr["error"]("Ocorreu um erro: " + message + ".")
+            }
+        })
+
+
+        $("#modalPostagem").modal('show')
+
+
+
+    }
+</script>

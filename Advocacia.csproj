@@ -49,6 +49,9 @@
       <HintPath>packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -150,6 +153,7 @@
     <Compile Include="Models\Mapping\Postagens.cs" />
     <Compile Include="Models\Mapping\UsuarioLogado.cs" />
     <Compile Include="Models\ViewModel\AutorVM.cs" />
+    <Compile Include="Models\ViewModel\VMPostagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Scripts\CategoriasFinalidades\CategoriasFinalidades.js" />
   </ItemGroup>
@@ -298,6 +302,8 @@
     <Content Include="Views\Postagens\Postagens.cshtml" />
     <Content Include="Views\Postar\Postar.cshtml" />
     <Content Include="Views\CategoriasFinalidades\CategoriasFinalidades.cshtml" />
+    <Content Include="Views\Postagens\Categorias.cshtml" />
+    <Content Include="Views\Postagens\Finalidades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

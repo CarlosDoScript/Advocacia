@@ -25,6 +25,22 @@ namespace Advocacia.Models.Business
                 return new List<Autor>();
             }
         }
+        
+        public Autor GetAutorById(int idAutor)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    var autores = banco.Query<Autor>("SELECT * FROM Autores WHERE Id = @id",new {id = idAutor}).FirstOrDefault();
+                    return autores;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public int DeleteAutor(int Id)
         {
