@@ -50,14 +50,16 @@ namespace Advocacia.Controllers
 
             var postagens = new PostarBusiness().GetPostagens(idFinalidade);
 
-            List<VMPostagem> listPostagens = new List<VMPostagem>();
+            List<VMPostagemBlog> listPostagens = new List<VMPostagemBlog>();
 
             foreach (var postagem in postagens)
             {
                 var autor = new AutoresBusiness().GetAutorById(postagem.id_autor);
+                var categoria = new CategoriasFinalidadesBusiness().GetCategoriaById(idFinalidade);
 
-                VMPostagem postagemObj = new VMPostagem();
-                
+                VMPostagemBlog postagemObj = new VMPostagemBlog();
+
+                postagemObj.id = postagem.id;
                 postagemObj.titulo = postagem.titulo;
                 postagemObj.conteudo = postagem.conteudo;
                 postagemObj.dtPublicacao = postagem.dtPublicacao.ToString("dd/MM/yyyy");
@@ -65,6 +67,8 @@ namespace Advocacia.Controllers
                 postagemObj.minutos_leitura = postagem.minutos_leitura;
                 postagemObj.conteudo_sem_formatacao = postagem.conteudo_sem_formatacao;
                 postagemObj.nome_autor = autor.nome;
+                postagemObj.nome_categoria = categoria.descricao;
+                postagemObj.nome_finalidade = nomeFinalidade;
 
                 listPostagens.Add(postagemObj);
             }
@@ -72,9 +76,24 @@ namespace Advocacia.Controllers
             return View(listPostagens.ToPagedList(numeroPagina, tamanhoPagina));
         }
 
-        public ActionResult Postagem(int? page)
+        public ActionResult Postagem(int idPostagem,string nomeCategoria, string nomeFinalidade)
         {
-            return View();
+            var postagem = new PostarBusiness().GetPostagensById(idPostagem);
+            var autor = new AutoresBusiness().GetAutorById(postagem.id_autor);
+
+            var postagemVM = new VMPostagemBlog();
+
+            postagemVM.titulo = postagem.titulo;
+            postagemVM.conteudo = postagem.conteudo;
+            postagemVM.dtPublicacao = postagem.dtPublicacao.ToString("dd/MM/yyyy");
+            postagemVM.nome_imagem_gerada = postagem.nome_imagem_gerada;
+            postagemVM.minutos_leitura = postagem.minutos_leitura;
+            postagemVM.conteudo_sem_formatacao = postagem.conteudo_sem_formatacao;
+            postagemVM.nome_autor = autor.nome;
+            postagemVM.nome_categoria = nomeCategoria;
+            postagemVM.nome_finalidade = nomeFinalidade;
+
+            return View(postagemVM);
         }
 
     }

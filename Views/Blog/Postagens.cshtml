@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Advocacia.Models.ViewModel.VMPostagem>
+﻿@model PagedList.IPagedList<Advocacia.Models.ViewModel.VMPostagemBlog>
 @{
     ViewBag.Title = "Postagens";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -39,7 +39,7 @@
                     var palavras = postagem.conteudo_sem_formatacao.Length > maxLength
                         ? postagem.conteudo_sem_formatacao.Substring(0, maxLength).TrimEnd()
                         : postagem.conteudo_sem_formatacao;
-                    <a href="#/">
+                    <a title="Visualizar post" href="@Url.Action("Postagem", "Blog", new { idPostagem = postagem.id, nomeCategoria = postagem.nome_categoria, nomeFinalidade = postagem.nome_finalidade })">
                         <div class="d-flex flex-wrap justify-content-center mt-1">
                             <div class="card mb-3 mr-3" style="width: 18rem;">
                                 <img class="card-img-top" width="286" height="180" src="~/Content/Blog/Postagens/Imagens/@postagem.nome_imagem_gerada">
@@ -79,10 +79,4 @@
     </div>
 
 </div>
-</div>
 
-
-<script>
-    var usuarioAdm = "@ViewBag.UsuarioAdm"
-</script>
-<script src="~/Scripts/Postagens/Postagens.js"></script>

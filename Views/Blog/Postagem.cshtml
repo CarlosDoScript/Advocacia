@@ -1,8 +1,56 @@
-﻿
+﻿@model Advocacia.Models.ViewModel.VMPostagemBlog
 @{
-    ViewBag.Title = "Postagem";
+    ViewBag.Title = "Postagens";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+<div class="section banner-page" data-background="images/banner-single.jpg">
+    <div class="content-wrap pos-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="title-page">Post</div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-3">
+                        <nav aria-label="breadcrumb">
+                            <a href="/Blog/Blog">Voltar</a>
+                            <ol class="breadcrumb ">
+                                <li class="breadcrumb-item">@Model.nome_categoria</li>
+                                <li class="breadcrumb-item active" aria-current="page">@Model.nome_finalidade</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="section">
+    <div class="content-wrap">      
+        <div class="d-flex flex-wrap justify-content-center">            
+            <div style="word-break: break-all; padding:15px;">
+                <p class="text-black" style="font-size:0.9em!important;">@Model.dtPublicacao - @Model.minutos_leitura</p>
+                <h1 class="text-black">@Model.titulo</h1>
+                <p class="text-black" style="font-size:0.9em!important;">@Model.nome_autor</p>
+            </div>
+            <div>
+                <img src="~/Content/Blog/Postagens/Imagens/@Model.nome_imagem_gerada"/>
+            </div>
+            <div class="text-black" style="font-size:1.1em!important; padding:30px;">
+                @Html.Raw(Model.conteudo)
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 
