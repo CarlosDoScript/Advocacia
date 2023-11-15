@@ -25,6 +25,7 @@
 </div>
 <div class="section">
     <div class="content-wrap">
+
         <div class="container">
             <div class="row">
 
@@ -34,9 +35,9 @@
                     {
                         <div class="col-12 col-sm-6 col-md-4 mb-4">
                             <a href="@Url.Action("Finalidades", "Blog", new { idCategoria = categoria.id,nomeCategoria = categoria.descricao })">
-                                <div class="box-icon-1 text-center descricao-categoria">
-                                    <div class="body-content">
-                                        <h3>@categoria.descricao</h3>
+                                <div class="card box-icon-1 text-center">
+                                    <div class="card-body body-content">
+                                        <h3 class="card-title">@categoria.descricao</h3>
                                     </div>
                                 </div>
                             </a>
@@ -46,6 +47,7 @@
 
             </div>
         </div>
+
         <hr class="mt-5" />
         <nav aria-label="Page navigation mt-5">
             <ul class="pagination justify-content-end" style="height: 20px;">
