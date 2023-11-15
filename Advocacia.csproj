@@ -156,6 +156,8 @@
     <Compile Include="Models\ViewModel\AutorVM.cs" />
     <Compile Include="Models\ViewModel\VMPostagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\images\LogoSiteFooterNovo.png" />
+    <Content Include="Content\images\LogoSiteHeaderNovo.png" />
     <Content Include="Scripts\CategoriasFinalidades\CategoriasFinalidades.js" />
   </ItemGroup>
   <ItemGroup>

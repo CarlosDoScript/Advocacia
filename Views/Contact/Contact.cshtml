@@ -1,141 +1,184 @@
 ﻿@model Advocacia.Models.Mapping.Pessoas
-@{ 
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <!-- BANNER -->
-    <div class="section banner-page" data-background="images/banner-single.jpg">
-        <div class="content-wrap pos-relative">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex bd-highlight mb-3">
-                            <div class="title-page">Contate-nos</div>
-                        </div>
-                        <div class="d-flex bd-highlight mb-3">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb ">
-                                    <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Contate-nos</li>
-                                </ol>
-                            </nav>
-                        </div>
+<!-- BANNER -->
+<div class="section banner-page" data-background="images/banner-single.jpg">
+    <div class="content-wrap pos-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="title-page">Contate-nos</div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb ">
+                                <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Contate-nos</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- CONTENT -->
-    <div class="section">
-        <div class="content-wrap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-4">
-                        <h2 class="section-heading">
-                            Informações de contato
-                        </h2>
-                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
-                        <!-- Item 1 -->
-                        <div class="row align-items-center">
-                            <div class="col-2"><i class="fa fa-map-marker fa-3x text-primary"></i></div>
-                            <div class="col-10">
-                                <h4 class="text-primary mb-0">Endereço :</h4>
-                                <p>Rua Guarani 909 Jardim Buissa l. Macaubal - SP</p>
-                            </div>
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="row align-items-center">
-                            <div class="col-2"><i class="fa fa-envelope fa-3x text-primary"></i></div>
-                            <div class="col-10">
-                                <h4 class="text-primary mb-0">E-mail :</h4>
-                                <p>L.A_juridico@outlook.com.br</p>
-                            </div>
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="row align-items-center">
-                            <div class="col-2"><i class="fa fa-phone fa-3x text-primary"></i></div>
-                            <div class="col-10">
-                                <h4 class="text-primary mb-0">Telefone :</h4>
-                                <p>(17) 996170582</p>
-                            </div>
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="row align-items-center">
-                            <div class="col-2"><i class="fa fa-clock-o fa-3x text-primary"></i></div>
-                            <div class="col-10">
-                                <h4 class="text-primary mb-0">Horário de Atendimento :</h4>
-                                <p>Seg-Sex : 08:00am-17:00pm <br>Sab-Dom : Fechado</p>
-                            </div>
+<!-- CONTENT -->
+<div class="section">
+    <div class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <h2 class="section-heading">
+                        Informações de contato
+                    </h2>
+                    <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+                    <!-- Item 1 -->
+                    <div class="row align-items-center">
+                        <div class="col-2"><i class="fa fa-map-marker fa-3x text-primary"></i></div>
+                        <div class="col-10">
+                            <h4 class="text-primary mb-0">Endereço :</h4>
+                            <p>Rua Guarani 909 Jardim Buissa l. Macaubal - SP</p>
                         </div>
                     </div>
-                    <!-- End Sidebar -->
-                    <div class="col-sm-12 col-md-12 col-lg-8">
-
-                        <h2 class="section-heading">
-                            Envie-nos uma mensagem
-                        </h2>
-                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
-                        @using (Html.BeginForm("Contact", "Contact", FormMethod.Post, new { id = "formContato", name = "formContato" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(x => x.Nome, new { @class = "form-control", placeholder = "Insira o nome completo" })
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Digite o e-mail" })
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(x => x.Celular, new { @class = "form-control", placeholder = "Digite o número de telefone ou celular" })
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", placeholder = "Título" })
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.TextAreaFor(x => x.Mensagem, new { @class = "form-control",rows="6", placeholder = "Digite sua mensagem" })
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-secondary">Enviar Mensagem</button>
-                            </div>
-                        }
+                    <!-- Item 2 -->
+                    <div class="row align-items-center">
+                        <div class="col-2"><i class="fa fa-envelope fa-3x text-primary"></i></div>
+                        <div class="col-10">
+                            <h4 class="text-primary mb-0">E-mail :</h4>
+                            <p>L.A_juridico@outlook.com.br</p>
+                        </div>
                     </div>
+                    <!-- Item 3 -->
+                    <div class="row align-items-center">
+                        <div class="col-2"><i class="fa fa-phone fa-3x text-primary"></i></div>
+                        <div class="col-10">
+                            <h4 class="text-primary mb-0">Telefone :</h4>
+                            <p>(17) 996170582</p>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="row align-items-center">
+                        <div class="col-2"><i class="fa fa-clock-o fa-3x text-primary"></i></div>
+                        <div class="col-10">
+                            <h4 class="text-primary mb-0">Horário de Atendimento :</h4>
+                            <p>Seg-Sex : 08:00am-17:00pm <br>Sab-Dom : Fechado</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sidebar -->
+                <div class="col-sm-12 col-md-12 col-lg-8">
 
+                    <h2 class="section-heading">
+                        Envie-nos uma mensagem
+                    </h2>
+                    <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+                    @using (Html.BeginForm("Contact", "Contact", FormMethod.Post, new { id = "formContato", name = "formContato" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Nome, new { @class = "form-control", placeholder = "Insira o nome completo" })
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Digite o e-mail" })
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Celular, new { @class = "form-control", placeholder = "Digite o número de telefone ou celular" })
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(x => x.Titulo, new { @class = "form-control", placeholder = "Título" })
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.TextAreaFor(x => x.Mensagem, new { @class = "form-control", rows = "6", placeholder = "Digite sua mensagem" })
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-secondary">Enviar Mensagem</button>
+                            <a href="https://api.whatsapp.com/send/?phone=5517996170582&text=Eu+preciso+de+ajuda,+pode+me+ajudar?&app_absent=0" target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp fa-3x pulse" style="color: #43e000;"></i>
+                            </a>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="section bg-primary">
+    <div class="content-wrap py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="text-center text-white">
+                        <h3>Consultor Jurídico : (17) 996170582</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- CTA -->
-    <div class="section bg-primary">
-        <div class="content-wrap py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12">
-                        <div class="text-center text-white">
-                            <h3>Consultor Jurídico : (17) 996170582</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<style>
+  .whatsapp-link {
+    margin-left: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
 
-  
+.whatsapp-link i {
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 36px; /* Ajuste o tamanho da fonte conforme necessário */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo e escala */
+    /* Adicione um efeito de sombra sutil */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adiciona um efeito hover para tornar o ícone ainda mais chamativo */
+.whatsapp-link i:hover {
+    background-color: #128C7E;
+    transform: scale(1.1); /* Aumenta um pouco o tamanho no hover */
+}
+
+/* Adiciona uma animação de pulsação */
+@@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+
+</style>
 
 
 
