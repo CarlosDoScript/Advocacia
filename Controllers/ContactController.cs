@@ -44,5 +44,23 @@ namespace Advocacia.Controllers
                 return RedirectToAction("Contact");
             }
         }
+
+        
+        [HttpPost]
+        public JsonResult PostPessoa(string nome, string email, string celular, string titulo, string mensagem)
+        {
+            Pessoas pessoas = new Pessoas();
+
+            pessoas.Nome = nome;
+            pessoas.Email = email;
+            pessoas.Celular = celular;
+            pessoas.Titulo = titulo;
+            pessoas.Mensagem = mensagem;
+
+            bool resultado = new AdvocaciaBusiness().SalvarInfoGeral(pessoas);
+
+            return Json(resultado,JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

@@ -30,6 +30,10 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/vendor/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/vendor/magnific-popup.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/vendor/animate.min.css">
+    <script src="~/Scripts/vendor/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/css/toastr.min.css" />
+    <script src="/Scripts/toastr.min.js"></script>
+
 
     <!-- ==============================================
     Custom Stylesheet
@@ -252,7 +256,7 @@
             $(".tituloPagina").text("Advocacia - Área de prática");
             $('.menu-areaPratica').addClass('active')
         }
-        else if (page == 'Blog' || page == 'Finalidades') {
+        else if (page == 'Blog' || page == 'Finalidades' || page == 'Postagens' || page == 'Postagem') {
             $(".tituloPagina").text("Advocacia - Blog");
             $('.menu-blog').addClass('active')
         } else {
