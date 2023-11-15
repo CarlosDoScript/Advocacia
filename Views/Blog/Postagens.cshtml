@@ -1,1 +1,88 @@
-﻿
+﻿@model PagedList.IPagedList<Advocacia.Models.ViewModel.VMPostagem>
+@{
+    ViewBag.Title = "Postagens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="section banner-page" data-background="images/banner-single.jpg">
+    <div class="content-wrap pos-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex bd-highlight mb-3">
+                        <div class="title-page">Postagens</div>
+                    </div>
+                    <div class="d-flex bd-highlight mb-3">
+                        <nav aria-label="breadcrumb">
+                            <a href="/Blog/Blog">Voltar</a>
+                            <ol class="breadcrumb ">
+                                <li class="breadcrumb-item">@ViewBag.nomeCategoria</li>
+                                <li class="breadcrumb-item active" aria-current="page">@ViewBag.nomeFinalidade</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="content-wrap">
+        <div class="d-flex flex-wrap justify-content-center">
+
+            @if (Model.Count > 0)
+            {
+                foreach (var postagem in Model)
+                {
+                    var maxLength = 109;
+                    var palavras = postagem.conteudo_sem_formatacao.Length > maxLength
+                        ? postagem.conteudo_sem_formatacao.Substring(0, maxLength).TrimEnd()
+                        : postagem.conteudo_sem_formatacao;
+                    <a href="#/">
+                        <div class="d-flex flex-wrap justify-content-center mt-1">
+                            <div class="card mb-3 mr-3" style="width: 18rem;">
+                                <img class="card-img-top" width="286" height="180" src="~/Content/Blog/Postagens/Imagens/@postagem.nome_imagem_gerada">
+                                <div class="card-body">
+                                    <h5 class="card-title">@postagem.titulo</h5>
+                                    <p class="card-text">@palavras...</p>
+                                    <p class="card-title" style="margin:0!important; font-size:0.8em;">@postagem.nome_autor</p>
+                                    <p class="card-title" style="margin:0!important; font-size:0.8em;">@postagem.dtPublicacao</p>
+                                    <div class="d-flex justify-content-end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+        <nav aria-label="Page navigation mt-5">
+            <ul class="pagination justify-content-end" style="height: 20px;">
+                <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Postagens", "Blog", new { page = Model.PageNumber - 1, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })" tabindex="-1">Anterior</a>
+                </li>
+
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Postagens", "Blog", new { page = i, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                    <a class="page-link" href="@Url.Action("Postagens", "Blog", new { page = Model.PageNumber + 1, idFinalidade = ViewBag.idFinalidade, nomeFinalidade = ViewBag.nomeFinalidade })">Próximo</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+</div>
+
+
+<script>
+    var usuarioAdm = "@ViewBag.UsuarioAdm"
+</script>
+<script src="~/Scripts/Postagens/Postagens.js"></script>

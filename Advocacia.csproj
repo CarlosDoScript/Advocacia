@@ -308,6 +308,7 @@
     <Content Include="Views\Blog\Blog.cshtml" />
     <Content Include="Views\Blog\Finalidades.cshtml" />
     <Content Include="Views\Blog\Postagens.cshtml" />
+    <Content Include="Views\Blog\Postagem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

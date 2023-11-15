@@ -16,7 +16,7 @@
                             <a href="/Blog/Blog">Voltar</a>
                             <ol class="breadcrumb ">
                                 <li class="breadcrumb-item">@ViewBag.nomeCategoria</li>
-                                <li class="breadcrumb-item active" aria-current="page">Finalidades</li>
+                                <li class="breadcrumb-item active" aria-current="page"></li>
                             </ol>
                         </nav>
                     </div>
@@ -37,7 +37,7 @@
                     foreach (var finalidade in Model)
                     {
                         <div class="col-12 col-sm-6 col-md-4 mb-4">
-                            <a href="@Url.Action("Finalidades", "Blog", new { idCategoria = ViewBag.idCategoria, nomeCategoria = ViewBag.nomeCategoria })">
+                            <a href="@Url.Action("Postagens", "Blog", new { idFinalidade = finalidade.id, nomeFinalidade = finalidade.descricao })">
                                 <div class="card box-icon-1 text-center">
                                     <div class="card-body body-content">
                                         <h3 class="card-title">@finalidade.descricao</h3>
