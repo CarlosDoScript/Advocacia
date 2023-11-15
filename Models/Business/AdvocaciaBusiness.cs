@@ -39,7 +39,7 @@ namespace Advocacia.Models
             {
                 return false;
             }
-        }    
+        }
 
         public List<Usuario> GetUsuarios()
         {
@@ -78,7 +78,7 @@ namespace Advocacia.Models
             {
                 using (var banco = new Connection().SQL())
                 {
-                    return banco.Execute("INSERT INTO Usuarios (NomeLogin,Senha,Email,adm,Nome) VALUES(@NomeLogin,@Senha,@Email,@adm,@Nome)", new {NomeLogin = nomeLogin,Senha = senha, Email = email,adm = adm,Nome=nome });
+                    return banco.Execute("INSERT INTO Usuarios (NomeLogin,Senha,Email,adm,Nome) VALUES(@NomeLogin,@Senha,@Email,@adm,@Nome)", new { NomeLogin = nomeLogin, Senha = senha, Email = email, adm = adm, Nome = nome });
                 }
             }
             catch (Exception)
@@ -86,14 +86,14 @@ namespace Advocacia.Models
                 return 0;
             }
         }
-        
-        public int EditarUsuarios(string nome, string nomeLogin, string email, string senha, bool adm,int idUsuario)
+
+        public int EditarUsuarios(string nome, string nomeLogin, string email, string senha, bool adm, int idUsuario)
         {
             try
             {
                 using (var banco = new Connection().SQL())
                 {
-                    return banco.Execute("UPDATE Usuarios SET NomeLogin = @NomeLogin ,Senha = @Senha ,Email = @Email ,adm = @adm ,Nome = @Nome WHERE id = @id ", new {NomeLogin = nomeLogin,Senha = senha, Email = email,adm = adm,Nome=nome,id = idUsuario });
+                    return banco.Execute("UPDATE Usuarios SET NomeLogin = @NomeLogin ,Senha = @Senha ,Email = @Email ,adm = @adm ,Nome = @Nome WHERE id = @id ", new { NomeLogin = nomeLogin, Senha = senha, Email = email, adm = adm, Nome = nome, id = idUsuario });
                 }
             }
             catch (Exception)
@@ -101,14 +101,14 @@ namespace Advocacia.Models
                 return 0;
             }
         }
-        
+
         public int DeleteUsuario(int idUsuario)
         {
             try
             {
                 using (var banco = new Connection().SQL())
                 {
-                    return banco.Execute("DELETE Usuarios WHERE id = @id", new {id = idUsuario});
+                    return banco.Execute("DELETE Usuarios WHERE id = @id", new { id = idUsuario });
                 }
             }
             catch (Exception)
@@ -116,5 +116,44 @@ namespace Advocacia.Models
                 return 0;
             }
         }
+
+        public InformacoesPagina GetInformacoesPagina()
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                    return banco.Query<InformacoesPagina>("SELECT * FROM InformacoesPagina").FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public bool UpdateInformacoesPagina(int casosProcessos, int casosEncerrados, int clientesConfiaveis, int equipeEspecialistas)
+        {
+            try
+            {
+                using (var banco = new Connection().SQL())
+                {
+                   var result =  banco.Execute("UPDATE InformacoesPagina SET casosProcessos = @casosProcessos, casosEncerrados = @casosEncerrados,clientesConfiaveis = @clientesConfiaveis,equipeEspecialistas = @equipeEspecialistas", new 
+                    {
+                        casosProcessos = casosProcessos,
+                        casosEncerrados = casosEncerrados,
+                        clientesConfiaveis = clientesConfiaveis,
+                        equipeEspecialistas = equipeEspecialistas
+                    });
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
     }
 }

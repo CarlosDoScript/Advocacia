@@ -14,6 +14,7 @@ namespace Advocacia.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.InformacoesPagina = new AdvocaciaBusiness().GetInformacoesPagina();
             return View();
         }     
         public ActionResult Login(bool? resultado = null)
