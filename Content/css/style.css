@@ -737,8 +737,17 @@ ul {
     .section-heading {
         font-size: 32px;
     }
+    .divTituloPostagem {
+        padding-left: 0px!important;
+        padding-right: 0px!important;
+    }
 }
-
+@media(max-width: 932){
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
 .supheading {
     font-size: 24px;
     font-weight: 700;
@@ -848,6 +857,10 @@ blockquote {
 @media (max-width: 767px) {
     .bgi-hide-xs {
         background-image: none !important;
+    }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 /* OWL */
@@ -1046,6 +1059,10 @@ blockquote {
 @media (max-width: 767px) {
     .overlap {
         margin-top: 0;
+    }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
@@ -2401,6 +2418,10 @@ TESTIMONIALS
     .testimonial-2 .body {
         text-align: center;
     }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .rs-feature-box-1 {
@@ -3610,6 +3631,10 @@ Back To Top Section
             position: relative;
             top: 0;
         }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 /**
  * 5. - SECTION
@@ -3829,6 +3854,10 @@ Back To Top Section
         .wrap-caption.center, .wrap-caption.right {
             width: 100%;
         }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .img-video {
@@ -4030,6 +4059,10 @@ Back To Top Section
         max-width: 100%;
         text-align: center;
     }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .cta-1 .body-action {
@@ -4044,6 +4077,10 @@ Back To Top Section
         float: none;
         margin: 0 auto;
         display: table;
+    }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
@@ -4073,6 +4110,10 @@ Back To Top Section
         max-width: 100%;
         text-align: center;
     }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .cta-overlap .body-action {
@@ -4087,6 +4128,10 @@ Back To Top Section
         float: none;
         margin: 0 auto;
         display: table;
+    }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
@@ -4344,6 +4389,10 @@ Back To Top Section
     .grid-sizer {
         width: 100%;
     }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .grid-item {
@@ -4405,6 +4454,10 @@ Back To Top Section
         .sideleft-img img {
             display: block;
         }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .sideright-img {
@@ -4439,6 +4492,10 @@ Back To Top Section
         .sideright-img img {
             display: block;
         }
+    .divTituloPostagem {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .events-widget {
