@@ -741,11 +741,18 @@ ul {
         padding-left: 0px!important;
         padding-right: 0px!important;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
+
 }
 @media(max-width: 932){
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 .supheading {
@@ -861,6 +868,9 @@ blockquote {
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 /* OWL */
@@ -1063,6 +1073,9 @@ blockquote {
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 
@@ -2422,6 +2435,9 @@ TESTIMONIALS
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .rs-feature-box-1 {
@@ -3635,6 +3651,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 /**
  * 5. - SECTION
@@ -3858,6 +3877,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .img-video {
@@ -4063,6 +4085,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .cta-1 .body-action {
@@ -4081,6 +4106,9 @@ Back To Top Section
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 
@@ -4114,6 +4142,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .cta-overlap .body-action {
@@ -4132,6 +4163,9 @@ Back To Top Section
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 
@@ -4393,6 +4427,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .grid-item {
@@ -4458,6 +4495,9 @@ Back To Top Section
         padding-left: 0px;
         padding-right: 0px;
     }
+    .tituloBlog {
+        font-size: 2.5em;
+    }
 }
 
 .sideright-img {
@@ -4495,6 +4535,9 @@ Back To Top Section
     .divTituloPostagem {
         padding-left: 0px;
         padding-right: 0px;
+    }
+    .tituloBlog {
+        font-size: 2.5em;
     }
 }
 
