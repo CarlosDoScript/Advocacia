@@ -27,103 +27,108 @@
         </div>
     </div>
 </div>
-
-<div class="section">
-    <div class="content-wrap">
-        <div class="d-flex flex-wrap justify-content-center">
-            <div class="divTituloPostagem" style="word-break: break-all; padding-left: 130px; padding-right: 100px; max-width: 100%; overflow: hidden;">
-                <p class="text-black" style="font-size: 0.9em!important;">@Model.dtPublicacao - @Model.minutos_leitura</p>
-                <h1 class="text-black" style="overflow-wrap: break-word;">@Model.titulo</h1>
-                <p class="text-black" style="font-size: 0.9em!important;">@Model.nome_autor</p>
-            </div>
-            <div style="clear: both; margin-top: 10px;">
-                <img src="~/Content/Blog/Postagens/Imagens/@Model.nome_imagem_gerada" style="max-width: 100%; height: auto; display: block;" />
-            </div>
-            <div class="text-black mt-5" style="font-size: 1.1em !important; padding-left: 200px!important; padding-right: 200px!important;">
-                @Html.Raw(Model.conteudo)
-                <hr class="mt-5" />
-            </div>
-            <div class="row mt-5" style="padding-left: 10px !important; padding-right: 10px!important;">
-                <div class="col-sm-12 col-md-12 col-lg-4">
-                    <h2 class="section-heading">
-                        Informações de contato
-                    </h2>
-                    <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
-                    <div class="row align-items-center">
-                        <div class="col-2"><i class="fa fa-map-marker fa-3x text-primary"></i></div>
-                        <div class="col-10">
-                            <h4 class="text-primary mb-0">Endereço :</h4>
-                            <p>Rua Guarani 909 Jardim Buissa l. Macaubal - SP</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-2"><i class="fa fa-envelope fa-3x text-primary"></i></div>
-                        <div class="col-10">
-                            <h4 class="text-primary mb-0">E-mail :</h4>
-                            <p>L.A_juridico@outlook.com.br</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-2"><i class="fa fa-phone fa-3x text-primary"></i></div>
-                        <div class="col-10">
-                            <h4 class="text-primary mb-0">Telefone :</h4>
-                            <p>(17) 996170582</p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="col-2"><i class="fa fa-clock-o fa-3x text-primary"></i></div>
-                        <div class="col-10">
-                            <h4 class="text-primary mb-0">Horário de Atendimento :</h4>
-                            <p>Seg-Sex : 08:00am-17:00pm <br>Sab-Dom : Fechado</p>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="section container">
+        <div class="content-wrap">
+            <div class="d-flex flex-wrap justify-content-center">
+                @*<div  style="word-break: break-all; padding-left: 130px; padding-right: 100px; max-width: 100%; overflow: hidden;">*@
+                <div @*style="padding-left: 130px; padding-right: 100px;"*@ class="container">
+                    <p class="text-black" style="font-size: 0.9em!important;">@Model.dtPublicacao - @Model.minutos_leitura</p>
+                    <h1 class="text-black" style="overflow-wrap: break-word;">@Model.titulo</h1>
+                    <p class="text-black" style="font-size: 0.9em!important;">@Model.nome_autor</p>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-8">
-
-                    <h2 class="section-heading">
-                        Envie-nos uma mensagem
-                    </h2>
-                    <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
-
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input id="nomeCompleto" class="form-control" placeholder="Insira o nome completo" />
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input id="email" class="form-control" placeholder="Digite o e-mail" />
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input id="celular" class="form-control" placeholder="Digite o número de telefone ou celular" />
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-6">
-                            <div class="form-group">
-                                <input id="titulo" class="form-control" placeholder="Título" />
-                                <div class="help-block with-errors"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="6" id="mensagem" maxlength="255" class="form-control" placeholder="Digite sua mensagem"></textarea>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="form-group">
-                        <div id="success"></div>
-                        <button id="btnEnviar" class="btn btn-secondary">Enviar Mensagem</button>
-                        <a href="https://api.whatsapp.com/send/?phone=5517996170582&text=Eu+preciso+de+ajuda,+pode+me+ajudar?&app_absent=0" target="_blank" class="whatsapp-link">
-                            <i class="fab fa-whatsapp fa-3x pulse" style="color: #43e000;"></i>
-                        </a>
-                    </div>
+                <div style="clear: both; margin-top: 10px;">
+                    <img src="~/Content/Blog/Postagens/Imagens/@Model.nome_imagem_gerada" style="max-width: 100%; height: auto; display: block;" />
+                </div>
+                <div class="text-black mt-5" style="font-size: 1.1em !important; padding-left: 200px!important; padding-right: 200px!important;">
+                    @Html.Raw(Model.conteudo)
+                    <hr class="mt-5" />
                 </div>
 
+
+
+                <div class="row mt-5" style="padding-left: 10px !important; padding-right: 10px!important;">
+                    <div class="col-sm-12 col-md-12 col-lg-4">
+                        <h2 class="section-heading">
+                            Informações de contato
+                        </h2>
+                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-map-marker fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Endereço :</h4>
+                                <p>Rua Guarani 909 Jardim Buissa l. Macaubal - SP</p>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-envelope fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">E-mail :</h4>
+                                <p>L.A_juridico@outlook.com.br</p>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-phone fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Telefone :</h4>
+                                <p>(17) 996170582</p>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-2"><i class="fa fa-clock-o fa-3x text-primary"></i></div>
+                            <div class="col-10">
+                                <h4 class="text-primary mb-0">Horário de Atendimento :</h4>
+                                <p>Seg-Sex : 08:00am-17:00pm <br>Sab-Dom : Fechado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+
+                        <h2 class="section-heading">
+                            Envie-nos uma mensagem
+                        </h2>
+                        <p class="subheading mb-4">"sempre cuidamos dos clientes com seriedade"</p>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input id="nomeCompleto" class="form-control" placeholder="Insira o nome completo" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input id="email" class="form-control" placeholder="Digite o e-mail" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input id="celular" class="form-control" placeholder="Digite o número de telefone ou celular" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input id="titulo" class="form-control" placeholder="Título" />
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="6" id="mensagem" maxlength="255" class="form-control" placeholder="Digite sua mensagem"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <div id="success"></div>
+                            <button id="btnEnviar" class="btn btn-secondary">Enviar Mensagem</button>
+                            <a href="https://api.whatsapp.com/send/?phone=5517996170582&text=Eu+preciso+de+ajuda,+pode+me+ajudar?&app_absent=0" target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp fa-3x pulse" style="color: #43e000;"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

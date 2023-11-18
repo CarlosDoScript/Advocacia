@@ -1,29 +1,29 @@
-﻿$(document).ready(function () {
-    // Selecione o elemento h1 e ajuste seu conteúdo
-    $("h1.text-black").each(function () {
-        // Obtém o conteúdo do h1
-        var conteudo = $(this).text();
+﻿////$(document).ready(function () {
+////    // Selecione o elemento h1 e ajuste seu conteúdo
+////    $("h1.text-black").each(function () {
+////        // Obtém o conteúdo do h1
+////        var conteudo = $(this).text();
 
-        // Separa as palavras por espaços
-        var palavras = conteudo.split(" ");
+////        // Separa as palavras por espaços
+////        var palavras = conteudo.split(" ");
 
-        // Define o comprimento mínimo para a quebra de linha (ajuste conforme necessário)
-        var comprimentoMinimo = 10;
+////        // Define o comprimento mínimo para a quebra de linha (ajuste conforme necessário)
+////        var comprimentoMinimo = 10;
 
-        // Itera sobre as palavras e adiciona quebras de linha, se necessário
-        for (var i = 0; i < palavras.length; i++) {
-            if (palavras[i].length > comprimentoMinimo) {
-                palavras[i] = "<br>" + palavras[i];
-            }
-        }
+////        // Itera sobre as palavras e adiciona quebras de linha, se necessário
+////        for (var i = 0; i < palavras.length; i++) {
+////            if (palavras[i].length > comprimentoMinimo) {
+////                palavras[i] = "<br>" + palavras[i];
+////            }
+////        }
 
-        // Cria um novo conteúdo com quebras de linha
-        var novoConteudo = palavras.join(" ");
+////        // Cria um novo conteúdo com quebras de linha
+////        var novoConteudo = palavras.join(" ");
 
-        // Define o novo conteúdo no h1
-        $(this).html(novoConteudo);
-    });
-});
+////        // Define o novo conteúdo no h1
+////        $(this).html(novoConteudo);
+////    });
+////});
 
 $("#btnEnviar").on("click", function () {
 
