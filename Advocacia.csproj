@@ -158,6 +158,8 @@
     <Compile Include="Models\ViewModel\VMPostagem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Content\FotoBibliografia.png" />
+    <Content Include="Content\images\footerNovo.png" />
+    <Content Include="Content\images\headerNovo.png" />
     <Content Include="Content\images\LogoSiteFooterNovo.png" />
     <Content Include="Content\images\LogoSiteHeaderNovo.png" />
     <Content Include="Content\LeoConsultaGratuita.png" />
